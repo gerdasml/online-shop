@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Online shoping</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h2>Prekes aprasymas</h2>
+        <p th:text="'vardas: '+${good.getGoodsName()}"></p>
+        <p th:text="'el. pastas: '+${good.getPrice()}"></p>
+        <p th:text="'adresas: '+${good.getQuantity()}"></p>
+        <span th:if="${user.isPremium()}">
+            <p th:text="'ar premium vartotojas: '+${user.isPremium()}></p>
+        </span>
+        <span th:unless="${user.isPremium()}">
+            <p th:text="'ar premium vartotojas: '+${user.isPremium()}"></p>
+        </span>
+        <span th:if="${user.getUserType == "Facebook"}">
+            <p th:text="'prisijunge su: '+${user.getUserType}></p>
+        </span>
+        <span th:unless="${user.getUserType() == "Facebook"}">
+            <p th:text="'prisijunge su: '+${user.getUserTyepe()}"></p>
+        </span>
+    </body>
+</html>
