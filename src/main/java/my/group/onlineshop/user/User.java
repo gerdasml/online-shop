@@ -11,7 +11,7 @@ public abstract class User {
     private int id;
     private static final Random rand = new Random();
 
-    public User(String email, String name, String address){
+    public User(String email, String name, String address, int id){
         this.email = email;
         this.name = name;
         this.address = address;

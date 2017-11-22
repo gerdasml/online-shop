@@ -3,8 +3,8 @@ package my.group.onlineshop.user;
 
 public class RegularFacebookUser extends FacebookUser{
 
-    public RegularFacebookUser(String email, String name, String address){
-        super(email, name, address);
+    public RegularFacebookUser(String email, String name, String address, int id){
+        super(email, name, address, id);
     }
 
     @Override

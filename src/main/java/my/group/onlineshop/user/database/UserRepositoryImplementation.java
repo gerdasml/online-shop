@@ -33,8 +33,8 @@ public class UserRepositoryImplementation implements UserRepository {
         if (list.get(4).toString().equals("Facebook")) faq = UserFactoryCreator.makeFactory("Facebook");
         else faq = UserFactoryCreator.makeFactory("Simple");
         User user;
-        if((boolean)list.get(5)) user = faq.makePremiumUser(list.get(0).toString(), list.get(1).toString(), list.get(2).toString());
-        else user = faq.makeRegularUser(list.get(0).toString(), list.get(1).toString(), list.get(2).toString());
+        if((boolean)list.get(5)) user = faq.makePremiumUser(list.get(0).toString(), list.get(1).toString(), list.get(2).toString(), (int)list.get(3));
+        else user = faq.makeRegularUser(list.get(0).toString(), list.get(1).toString(), list.get(2).toString(), (int)list.get(3));
         return user;
     }
 }

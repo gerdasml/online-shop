@@ -6,14 +6,14 @@ import my.group.onlineshop.user.User;
 
 public class SimpleUserFactory implements UserFactory {
     @Override
-    public User makePremiumUser(String email, String name, String address) {
+    public User makePremiumUser(String email, String name, String address, int id) {
         System.out.println("Regular Premium user is being made");
-        return new PremiumFacebookUser(email, name, address);
+        return new PremiumFacebookUser(email, name, address, id);
     }
 
     @Override
-    public User makeRegularUser(String email, String name, String address) {
+    public User makeRegularUser(String email, String name, String address, int id) {
         System.out.println("Regular Simple user is being made");
-        return new RegularFacebookUser(email, name, address);
+        return new RegularFacebookUser(email, name, address, id);
     }
 }
