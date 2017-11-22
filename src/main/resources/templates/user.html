@@ -6,19 +6,19 @@
     </head>
     <body>
         <h2>Prekes aprasymas</h2>
-        <p th:text="'vardas: '+${good.getGoodsName()}"></p>
-        <p th:text="'el. pastas: '+${good.getPrice()}"></p>
-        <p th:text="'adresas: '+${good.getQuantity()}"></p>
+        <p th:text="'vardas: '+${user.getName()}"></p>
+        <p th:text="'el. pastas: '+${user.getEmail()}"></p>
+        <p th:text="'adresas: '+${user.getAddress()}"></p>
         <span th:if="${user.isPremium()}">
-            <p th:text="'ar premium vartotojas: '+${user.isPremium()}></p>
+            <p th:text="'ar premium vartotojas: '+${user.isPremium()}"></p>
         </span>
         <span th:unless="${user.isPremium()}">
             <p th:text="'ar premium vartotojas: '+${user.isPremium()}"></p>
         </span>
-        <span th:if="${user.getUserType == "Facebook"}">
-            <p th:text="'prisijunge su: '+${user.getUserType}></p>
+        <span th:if="${user.getUserType() == 'Facebook'}">
+            <p th:text="'prisijunge su: '+${user.getUserType()}"></p>
         </span>
-        <span th:unless="${user.getUserType() == "Facebook"}">
+        <span th:unless="${user.getUserType() == 'Facebook'}">
             <p th:text="'prisijunge su: '+${user.getUserTyepe()}"></p>
         </span>
     </body>

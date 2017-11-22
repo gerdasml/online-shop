@@ -15,7 +15,7 @@ public abstract class User {
         this.email = email;
         this.name = name;
         this.address = address;
-        this.id = rand.nextInt(1000000000);
+        this.id = id;
     }
 
     public String getEmail(){
