@@ -1,22 +1,28 @@
 package my.group.onlineshop.goods;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class DiscountGoods extends Goods {
     private double discountInPercents;
-    private Date dateUntilDiscountEnds;
+    private LocalDate dateUntilDiscountEnds;
 
-    public DiscountGoods(String name, double price, int quantity, double discountInPercents, Date dateUntilDiscountEnds){
+    public DiscountGoods(String name, double price, int quantity, double discountInPercents, LocalDate dateUntilDiscountEnds){
         super(name, price, quantity);
         this.discountInPercents = discountInPercents;
         this.dateUntilDiscountEnds = dateUntilDiscountEnds;
     }
 
-    public double getDiscountInPercents(){
+    @Override
+    public Double getDiscountInPercents(){
         return discountInPercents;
     }
 
-    public Date getDateUntilDiscountEnds(){
+    @Override
+    public LocalDate getDateUntilDiscountEnds(){
         return dateUntilDiscountEnds;
     }
+
+    @Override
+    public Double getRating(){return null;}
 }

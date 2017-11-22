@@ -1,5 +1,7 @@
 package my.group.onlineshop.goods;
 
+import java.time.LocalDate;
+
 public class RegularGoods extends Goods{
 
     private double rating;
@@ -9,7 +11,18 @@ public class RegularGoods extends Goods{
         this.rating = rating;
     }
 
-    public double getRating(){
+    @Override
+    public Double getRating(){
         return rating;
+    }
+
+    @Override
+    public Double getDiscountInPercents() {
+        return null;
+    }
+
+    @Override
+    public LocalDate getDateUntilDiscountEnds() {
+        return null;
     }
 }

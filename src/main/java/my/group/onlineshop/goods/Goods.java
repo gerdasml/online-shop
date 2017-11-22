@@ -1,5 +1,7 @@
 package my.group.onlineshop.goods;
 
+import java.time.LocalDate;
+
 public abstract class Goods {
     private String name;
     private double price;
@@ -23,7 +25,8 @@ public abstract class Goods {
         return quantity;
     }
 
-
-
+    public abstract Double getRating();
+    public abstract Double getDiscountInPercents();
+    public abstract LocalDate getDateUntilDiscountEnds();
 
 }
