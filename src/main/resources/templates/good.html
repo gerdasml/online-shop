@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Online shoping</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h2>Prekes aprasymas</h2>
+        <p th:text="'pavadinimas: '+${good.getGoodsName()}"></p>
+        <p th:text="'kaina: '+${good.getPrice()}"></p>
+        <p th:text="'kiekis: '+${good.getQuantity()}"></p>
+        <span th:if="${good.getDiscountInPercents()} != null">
+            <p th:text="'nuolaida: '+${good.getDiscountInPercents()} + '%'"></p>
+            <p th:text="'baigiasi: '+${good.getDateUntilDiscountEnds()}"></p>
+        </span>
+        <span th:unless="${good.getDiscountInPercents()} != null">
+            <p th:text="'rating: '+${good.getRating()}"></p>
+        </span>
+    </body>
+</html>

@@ -13,6 +13,12 @@ public class DiscountGoods extends Goods {
         this.dateUntilDiscountEnds = dateUntilDiscountEnds;
     }
 
+    public DiscountGoods(int id, String name, double price, int quantity, double discountInPercents, LocalDate dateUntilDiscountEnds){
+        super(id, name, price, quantity);
+        this.discountInPercents = discountInPercents;
+        this.dateUntilDiscountEnds = dateUntilDiscountEnds;
+    }
+
     @Override
     public Double getDiscountInPercents(){
         return discountInPercents;

@@ -11,6 +11,11 @@ public class RegularGoods extends Goods{
         this.rating = rating;
     }
 
+    public RegularGoods(int id, String name, double price, int quantity, double rating) {
+        super(id, name, price, quantity);
+        this.rating = rating;
+    }
+
     @Override
     public Double getRating(){
         return rating;

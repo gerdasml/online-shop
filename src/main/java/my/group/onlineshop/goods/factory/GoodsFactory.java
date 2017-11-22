@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public interface GoodsFactory {
 
-    Goods makeDiscountGoods(String name, double discount, LocalDate dateUntilSaleEnds, double price, int quantity);
-    Goods makeRegularGoods(String name, double rating, double price, int quantity);
+    Goods makeDiscountGoods(String name, Double discount, LocalDate dateUntilSaleEnds, double price, int quantity);
+    Goods makeRegularGoods(String name, Double rating, double price, int quantity);
+    Goods makeDiscountGoods(int id, String name, Double discount, LocalDate dateUntilSaleEnds, double price, int quantity);
+    Goods makeRegularGoods(int id, String name, Double rating, double price, int quantity);
 }

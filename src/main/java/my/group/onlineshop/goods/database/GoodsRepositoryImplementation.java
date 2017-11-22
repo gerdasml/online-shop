@@ -17,9 +17,9 @@ public class GoodsRepositoryImplementation implements GoodsRepository {
 
     @Autowired
     public GoodsRepositoryImplementation(GoodsFactory faq){
-        db.add(new ArrayList<>(Arrays.asList("Batai", 69.99, 43, null, 33.33, "2017-12-31")));
-        db.add(new ArrayList<>(Arrays.asList("Suknele", 14.99, 3, 4.6, null, null)));
-        db.add(new ArrayList<>(Arrays.asList("Striuke", 154.5, 8, 2.8, null, null)));
+        db.add(new ArrayList<>(Arrays.asList("Batai", 69.99, 43, null, 33.33, "2017-12-31", 0)));
+        db.add(new ArrayList<>(Arrays.asList("Suknele", 14.99, 3, 4.6, null, null, 1)));
+        db.add(new ArrayList<>(Arrays.asList("Striuke", 154.5, 8, 2.8, null, null, 2)));
         this.faq = faq;
     }
 
@@ -30,11 +30,18 @@ public class GoodsRepositoryImplementation implements GoodsRepository {
 
     @Override
     public void addGood(Goods good) {
-        db.add(new ArrayList<>(Arrays.asList(good.getGoodsName(), good.getPrice(), good.getQuantity(), good.getRating(), good.getDiscountInPercents(), good.getDateUntilDiscountEnds())));
+        db.add(new ArrayList<>(Arrays.asList(good.getGoodsName(), good.getPrice(), good.getQuantity(), good.getRating(), good.getDiscountInPercents(), good.getDateUntilDiscountEnds(), good.getId())));
     }
 
     private Goods createGoods(List<Object> list){
-        if(list.get(2) == null) return faq.makeDiscountGoods(list.get(0).toString(), (double)list.get(4), LocalDate.parse(list.get(5).toString()), (double)list.get(1), (int)list.get(2));
-        else return faq.makeRegularGoods(list.get(0).toString(), (double)list.get(3), (double)list.get(1), (int)list.get(2));
+        String name = list.get(0).toString();
+        double price = (double)list.get(1);
+        int quantity = (int)list.get(2);
+        Double rating = list.get(3) == null ? null : (Double)list.get(3);
+        Double discount = list.get(4) == null ? null : (Double)list.get(4);
+        LocalDate discountDate = list.get(5) == null ? null : LocalDate.parse(list.get(5).toString());
+        int id = (int)list.get(6);
+        if(list.get(3) == null) return faq.makeDiscountGoods(id, name, discount, discountDate, price, quantity);
+        else return faq.makeRegularGoods(id, name, rating, price, quantity);
     }
 }
