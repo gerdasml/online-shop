@@ -1,4 +1,8 @@
-package my.group.onlineshop.domain.goods;
+package my.group.onlineshop.repository.goodsrepository;
+
+import my.group.onlineshop.domain.goods.DiscountGoods;
+import my.group.onlineshop.domain.goods.Goods;
+import my.group.onlineshop.domain.goods.RegularGoods;
 
 import java.time.LocalDate;
 

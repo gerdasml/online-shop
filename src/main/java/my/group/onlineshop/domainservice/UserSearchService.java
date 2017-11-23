@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface UserSearchService {
 
-    List<User> getAllUsers();
-    User getUserById(int id);
-    List<User> getPremiumUser();
+    User getUserById(int id, List<User> list);
+    List<User> getPremiumUsers(List<User> list);
 
 }

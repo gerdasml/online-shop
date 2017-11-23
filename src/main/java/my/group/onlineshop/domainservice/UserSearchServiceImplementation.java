@@ -8,23 +8,14 @@ import java.util.stream.Collectors;
 
 public class UserSearchServiceImplementation implements UserSearchService {
 
-    private UserRepository repo;
 
-    public UserSearchServiceImplementation(UserRepository repo){
-        this.repo = repo;
-    }
     @Override
-    public List<User> getAllUsers() {
-        return repo.getAllUsers();
+    public User getUserById(int id, List<User> list) {
+        return list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    public User getUserById(int id) {
-        return repo.getAllUsers().stream().filter(x -> x.getId() == id).findFirst().orElse(null);
-    }
-
-    @Override
-    public List<User> getPremiumUser() {
-        return repo.getAllUsers().stream().filter(x -> x.isPremium()).collect(Collectors.toList());
+    public List<User> getPremiumUsers(List<User> list) {
+        return list.stream().filter(x -> x.isPremium()).collect(Collectors.toList());
     }
 }

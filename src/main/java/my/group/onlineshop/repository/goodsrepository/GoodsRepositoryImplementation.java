@@ -1,6 +1,5 @@
 package my.group.onlineshop.repository.goodsrepository;
 
-import my.group.onlineshop.domain.goods.GoodsFactory;
 import my.group.onlineshop.domain.goods.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 
