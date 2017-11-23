@@ -1,8 +1,8 @@
-package my.group.onlineshop.user.factory;
+package my.group.onlineshop.repository.userrepository;
 
-import my.group.onlineshop.user.entity.PremiumFacebookUser;
-import my.group.onlineshop.user.entity.RegularFacebookUser;
-import my.group.onlineshop.user.entity.User;
+import my.group.onlineshop.domain.user.PremiumFacebookUser;
+import my.group.onlineshop.domain.user.RegularFacebookUser;
+import my.group.onlineshop.domain.user.User;
 
 public class SimpleUserFactory implements UserFactory {
     @Override

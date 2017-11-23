@@ -1,4 +1,4 @@
-package my.group.onlineshop.user.entity;
+package my.group.onlineshop.domain.user;
 
 public class PremiumSimpleUser extends SimpleUser {
 

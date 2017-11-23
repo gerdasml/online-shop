@@ -1,7 +1,8 @@
-package my.group.onlineshop.user.service;
+package my.group.onlineshop.facadeservice.user;
 
-import my.group.onlineshop.paymentsAndDeliveries.service.delivery.DeliveryService;
-import my.group.onlineshop.user.entity.User;
+import my.group.onlineshop.domain.user.User;
+import my.group.onlineshop.domainservice.UserSearchService;
+import my.group.onlineshop.facadeservice.delivery.DeliveryService;
 
 import java.util.List;
 

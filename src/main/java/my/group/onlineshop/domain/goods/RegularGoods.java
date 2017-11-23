@@ -1,4 +1,4 @@
-package my.group.onlineshop.goods.entity;
+package my.group.onlineshop.domain.goods;
 
 import java.time.LocalDate;
 

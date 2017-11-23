@@ -1,8 +1,8 @@
-package my.group.onlineshop.paymentsAndDeliveries.service.delivery;
+package my.group.onlineshop.facadeservice.delivery;
 
-import my.group.onlineshop.facadeservice.GoodsService;
-import my.group.onlineshop.paymentsAndDeliveries.service.payment.BankService;
-import my.group.onlineshop.user.service.UserSearchService;
+import my.group.onlineshop.domainservice.UserSearchService;
+import my.group.onlineshop.facadeservice.goods.GoodsService;
+import my.group.onlineshop.integrationservice.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PostOfficeServiceImplementation implements DeliveryService {

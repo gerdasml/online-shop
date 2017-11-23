@@ -1,6 +1,6 @@
-package my.group.onlineshop.user.service;
+package my.group.onlineshop.domainservice;
 
-import my.group.onlineshop.user.entity.User;
+import my.group.onlineshop.domain.user.User;
 
 import java.util.List;
 

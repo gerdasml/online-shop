@@ -1,8 +1,4 @@
-package my.group.onlineshop.goods.factory;
-
-import my.group.onlineshop.goods.entity.DiscountGoods;
-import my.group.onlineshop.goods.entity.Goods;
-import my.group.onlineshop.goods.entity.RegularGoods;
+package my.group.onlineshop.domain.goods;
 
 import java.time.LocalDate;
 

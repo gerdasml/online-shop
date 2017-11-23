@@ -1,6 +1,6 @@
-package my.group.onlineshop.repository;
+package my.group.onlineshop.repository.goodsrepository;
 
-import my.group.onlineshop.goods.entity.Goods;
+import my.group.onlineshop.domain.goods.Goods;
 
 import java.util.List;
 

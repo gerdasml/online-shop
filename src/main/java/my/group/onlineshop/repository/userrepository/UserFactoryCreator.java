@@ -1,4 +1,4 @@
-package my.group.onlineshop.user.factory;
+package my.group.onlineshop.repository.userrepository;
 
 public class UserFactoryCreator {
     public static UserFactory makeFactory(String type){

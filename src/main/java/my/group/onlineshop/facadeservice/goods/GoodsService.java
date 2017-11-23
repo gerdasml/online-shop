@@ -1,6 +1,6 @@
-package my.group.onlineshop.facadeservice;
+package my.group.onlineshop.facadeservice.goods;
 
-import my.group.onlineshop.goods.entity.Goods;
+import my.group.onlineshop.domain.goods.Goods;
 
 import java.util.List;
 //this is domain service

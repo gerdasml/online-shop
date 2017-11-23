@@ -1,8 +1,8 @@
-package my.group.onlineshop.facadeservice;
+package my.group.onlineshop.facadeservice.goods;
 
-import my.group.onlineshop.goods.entity.Goods;
-import my.group.onlineshop.repository.GoodsRepository;
-import my.group.onlineshop.paymentsAndDeliveries.service.payment.BankService;
+import my.group.onlineshop.domain.goods.Goods;
+import my.group.onlineshop.repository.goodsrepository.GoodsRepository;
+import my.group.onlineshop.integrationservice.BankService;
 
 import java.util.List;
 import java.util.stream.Collectors;

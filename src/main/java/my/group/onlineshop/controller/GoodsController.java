@@ -1,7 +1,7 @@
-package my.group.onlineshop.goods.controller;
+package my.group.onlineshop.controller;
 
-import my.group.onlineshop.goods.entity.Goods;
-import my.group.onlineshop.goods.service.GoodsService;
+import my.group.onlineshop.domain.goods.Goods;
+import my.group.onlineshop.facadeservice.goods.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

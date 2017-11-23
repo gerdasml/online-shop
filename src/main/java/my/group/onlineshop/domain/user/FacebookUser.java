@@ -1,4 +1,4 @@
-package my.group.onlineshop.user.entity;
+package my.group.onlineshop.domain.user;
 
 public abstract class FacebookUser extends User {
     private String userType;

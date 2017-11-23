@@ -1,8 +1,6 @@
-package my.group.onlineshop.user.database;
+package my.group.onlineshop.repository.userrepository;
 
-import my.group.onlineshop.user.entity.User;
-import my.group.onlineshop.user.factory.UserFactory;
-import my.group.onlineshop.user.factory.UserFactoryCreator;
+import my.group.onlineshop.domain.user.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;

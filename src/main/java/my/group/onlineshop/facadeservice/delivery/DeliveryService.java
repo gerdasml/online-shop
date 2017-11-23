@@ -1,4 +1,4 @@
-package my.group.onlineshop.paymentsAndDeliveries.service.delivery;
+package my.group.onlineshop.facadeservice.delivery;
 
 public interface DeliveryService {
 

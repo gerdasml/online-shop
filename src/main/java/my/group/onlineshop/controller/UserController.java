@@ -1,7 +1,7 @@
-package my.group.onlineshop.user.controller;
+package my.group.onlineshop.controller;
 
-import my.group.onlineshop.user.entity.User;
-import my.group.onlineshop.user.service.UserService;
+import my.group.onlineshop.domain.user.User;
+import my.group.onlineshop.facadeservice.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
