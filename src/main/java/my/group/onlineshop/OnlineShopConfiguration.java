@@ -39,8 +39,8 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public UserSearchService userSearchService(UserRepository ur){
-        return new UserSearchServiceImplementation(ur);
+    public UserSearchService userSearchService(){
+        return new UserSearchServiceImplementation();
     }
 
     @Bean
@@ -59,12 +59,12 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bs, UserSearchService us, GoodsService gs){
-        return new HomeDeliveryServiceImplementation(us, gs, bs);
+    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bs, UserSearchService us, GoodsService gs, UserRepository ur){
+        return new HomeDeliveryServiceImplementation(us, gs, bs, ur);
     }
 
     @Bean
-    public UserService userService(UserSearchService uss, DeliveryService ds){
-        return new UserServiceImplementation(ds, uss);
+    public UserService userService(UserSearchService uss, DeliveryService ds, UserRepository ur){
+        return new UserServiceImplementation(ds, uss, ur);
     }
 }

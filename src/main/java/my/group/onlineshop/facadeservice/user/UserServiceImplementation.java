@@ -13,9 +13,10 @@ public class UserServiceImplementation implements UserService {
     private UserSearchService usseas;
     private UserRepository usrep;
 
-    public UserServiceImplementation(DeliveryService delser, UserSearchService usseas){
+    public UserServiceImplementation(DeliveryService delser, UserSearchService usseas, UserRepository usrep){
         this.delser = delser;
         this.usseas = usseas;
+        this.usrep = usrep;
     }
 
     @Override
