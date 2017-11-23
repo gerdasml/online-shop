@@ -1,30 +1,41 @@
 package my.group.onlineshop.user.service;
 
 import my.group.onlineshop.user.User;
-import my.group.onlineshop.user.database.UserRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class UserServiceImplementation implements UserService {
 
-    private UserRepository repo;
+    private DeliveryService delser;
+    private UserSearchService usseas;
 
-    public UserServiceImplementation(UserRepository repo){
-        this.repo = repo;
+    public UserServiceImplementation(DeliveryService delser, UserSearchService usseas){
+        this.delser = delser;
+        this.usseas = usseas;
     }
+
+    @Override
+    public String deliver(int userId, int goodsId) {
+        return delser.deliver(userId, goodsId);
+    }
+
+    @Override
+    public Double getPurchaseCost(int goodsId) {
+        return delser.getPurchaseCost(goodsId);
+    }
+
     @Override
     public List<User> getAllUsers() {
-        return repo.getAllUsers();
+        return usseas.getAllUsers();
     }
 
     @Override
     public User getUserById(int id) {
-        return repo.getAllUsers().stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+        return usseas.getUserById(id);
     }
 
     @Override
     public List<User> getPremiumUser() {
-        return repo.getAllUsers().stream().filter(x -> x.isPremium()).collect(Collectors.toList());
+        return usseas.getPremiumUser();
     }
 }

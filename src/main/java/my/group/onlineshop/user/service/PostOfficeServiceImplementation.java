@@ -1,15 +1,15 @@
-package my.group.onlineshop.goods.service;
+package my.group.onlineshop.user.service;
 
-import my.group.onlineshop.user.service.UserService;
+import my.group.onlineshop.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PostOfficeServiceImplementation implements DeliveryService {
 
     @Autowired
-    private UserService us;
+    private UserSearchService us;
 
     @Autowired
-    private GoodsSearchService gs;
+    private GoodsService gs;
 
     @Override
     public String deliver(int userId, int goodsId) {

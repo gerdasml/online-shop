@@ -1,8 +1,8 @@
 package my.group.onlineshop.user.controller;
 
-import my.group.onlineshop.goods.Goods;
-import my.group.onlineshop.goods.service.DeliveryService;
+import my.group.onlineshop.user.service.DeliveryService;
 import my.group.onlineshop.user.User;
+import my.group.onlineshop.user.service.UserSearchService;
 import my.group.onlineshop.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +17,6 @@ public class UserController {
 
     @Autowired
     UserService us;
-
-    @Autowired
-    DeliveryService ds;
 
     @RequestMapping("/users")
     public String viewAllUsers(Model model){
@@ -47,8 +44,8 @@ public class UserController {
     public String viewDeliveryInformation(@PathVariable("userId") String userId, @PathVariable("goodsId") String goodsId, Model model){
         int userIdy = Integer.parseInt(userId);
         int goodsIdy = Integer.parseInt(goodsId);
-        String message = ds.deliver(userIdy, goodsIdy);
-        Double purchaseCost = ds.getPurchaseCost(goodsIdy);
+        String message = us.deliver(userIdy, goodsIdy);
+        Double purchaseCost = us.getPurchaseCost(goodsIdy);
         model.addAttribute("message", message);
         model.addAttribute("purchaseCost", purchaseCost);
         return "delivery";

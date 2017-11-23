@@ -6,11 +6,11 @@ import my.group.onlineshop.goods.database.GoodsRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GoodsSearchServiceImplementation implements GoodsSearchService {
+public class GoodsServiceImplementation implements GoodsService {
 
     private GoodsRepository repo;
 
-    public GoodsSearchServiceImplementation(GoodsRepository repo) {
+    public GoodsServiceImplementation(GoodsRepository repo) {
         this.repo = repo;
     }
 

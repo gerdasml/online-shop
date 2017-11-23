@@ -1,7 +1,7 @@
 package my.group.onlineshop.goods.controller;
 
 import my.group.onlineshop.goods.Goods;
-import my.group.onlineshop.goods.service.GoodsSearchService;
+import my.group.onlineshop.goods.service.GoodsService;
 import my.group.onlineshop.user.service.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import java.util.List;
 public class GoodsController {
 
     @Autowired
-    GoodsSearchService gs;
+    GoodsService gs;
 
     @Autowired
     BankService bs;

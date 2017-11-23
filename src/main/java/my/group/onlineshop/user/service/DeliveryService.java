@@ -1,4 +1,4 @@
-package my.group.onlineshop.goods.service;
+package my.group.onlineshop.user.service;
 
 import my.group.onlineshop.goods.Goods;
 import java.util.List;
