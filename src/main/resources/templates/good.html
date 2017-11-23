@@ -16,5 +16,6 @@
         <span th:unless="${good.getDiscountInPercents()} != null">
             <p th:text="'rating: '+${good.getRating()}"></p>
         </span>
+        <a th:href="'/goods/'+${good.getId()}+'/buy'">Buy</a>
     </body>
 </html>

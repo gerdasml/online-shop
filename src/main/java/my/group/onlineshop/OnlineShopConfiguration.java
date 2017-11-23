@@ -4,14 +4,16 @@ import my.group.onlineshop.goods.database.GoodsRepository;
 import my.group.onlineshop.goods.database.GoodsRepositoryImplementation;
 import my.group.onlineshop.goods.factory.GoodsFactory;
 import my.group.onlineshop.goods.factory.GoodsFactoryImplementation;
-import my.group.onlineshop.goods.service.GoodsService;
-import my.group.onlineshop.goods.service.GoodsServiceImplementation;
+import my.group.onlineshop.goods.service.DeliveryService;
+import my.group.onlineshop.goods.service.GoodsSearchService;
+import my.group.onlineshop.goods.service.GoodsSearchServiceImplementation;
+import my.group.onlineshop.goods.service.HomeDeliveryServiceImplementation;
 import my.group.onlineshop.user.database.UserRepository;
 import my.group.onlineshop.user.database.UserRepositoryImplementation;
-import my.group.onlineshop.user.factory.UserFactory;
+import my.group.onlineshop.user.service.BankService;
+import my.group.onlineshop.user.service.SwedbankService;
 import my.group.onlineshop.user.service.UserService;
 import my.group.onlineshop.user.service.UserServiceImplementation;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,8 +21,8 @@ import org.springframework.context.annotation.Configuration;
 public class OnlineShopConfiguration {
 
     @Bean
-    public GoodsService goodsService(GoodsRepository gr){
-        return new GoodsServiceImplementation(gr);
+    public GoodsSearchService goodsService(GoodsRepository gr){
+        return new GoodsSearchServiceImplementation(gr);
     }
 
     @Bean
@@ -43,4 +45,13 @@ public class OnlineShopConfiguration {
         return new UserRepositoryImplementation();
     }
 
+    @Bean
+    public BankService bankService(){
+        return new SwedbankService();
+    }
+
+    @Bean
+    public DeliveryService deliveryService(){
+        return new HomeDeliveryServiceImplementation();
+    }
 }

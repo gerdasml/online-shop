@@ -4,7 +4,7 @@ import my.group.onlineshop.goods.Goods;
 
 import java.util.List;
 //this is domain service
-public interface GoodsService {
+public interface GoodsSearchService {
 
     List<Goods> getAllGoods();
     List<Goods> getDiscountGoods();
