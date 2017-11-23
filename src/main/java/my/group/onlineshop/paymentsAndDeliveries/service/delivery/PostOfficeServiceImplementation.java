@@ -1,15 +1,23 @@
-package my.group.onlineshop.user.service;
+package my.group.onlineshop.paymentsAndDeliveries.service.delivery;
 
 import my.group.onlineshop.goods.service.GoodsService;
+import my.group.onlineshop.paymentsAndDeliveries.service.payment.BankService;
+import my.group.onlineshop.user.service.UserSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PostOfficeServiceImplementation implements DeliveryService {
 
-    @Autowired
+
     private UserSearchService us;
+    private GoodsService gs;
+    private BankService bs;
 
     @Autowired
-    private GoodsService gs;
+    public PostOfficeServiceImplementation(UserSearchService us, GoodsService gs, BankService bs){
+        this.us = us;
+        this.gs = gs;
+        this.bs = bs;
+    }
 
     @Override
     public String deliver(int userId, int goodsId) {
@@ -19,5 +27,10 @@ public class PostOfficeServiceImplementation implements DeliveryService {
     @Override
     public Double getPurchaseCost(int goodsId) {
         return gs.getGoodById(goodsId).getPrice();
+    }
+
+    @Override
+    public Boolean pay(int goodsId) {
+        return bs.buy(gs.getGoodById(goodsId).getPrice());
     }
 }

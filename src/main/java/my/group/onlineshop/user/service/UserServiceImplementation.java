@@ -1,6 +1,7 @@
 package my.group.onlineshop.user.service;
 
-import my.group.onlineshop.user.User;
+import my.group.onlineshop.paymentsAndDeliveries.service.delivery.DeliveryService;
+import my.group.onlineshop.user.entity.User;
 
 import java.util.List;
 
@@ -22,6 +23,11 @@ public class UserServiceImplementation implements UserService {
     @Override
     public Double getPurchaseCost(int goodsId) {
         return delser.getPurchaseCost(goodsId);
+    }
+
+    @Override
+    public Boolean pay(int goodsId) {
+        return delser.pay(goodsId);
     }
 
     @Override

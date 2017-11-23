@@ -1,7 +1,7 @@
 package my.group.onlineshop.goods.database;
 
 import my.group.onlineshop.goods.factory.GoodsFactory;
-import my.group.onlineshop.goods.Goods;
+import my.group.onlineshop.goods.entity.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;

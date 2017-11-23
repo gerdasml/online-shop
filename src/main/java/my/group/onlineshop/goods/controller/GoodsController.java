@@ -1,8 +1,7 @@
 package my.group.onlineshop.goods.controller;
 
-import my.group.onlineshop.goods.Goods;
+import my.group.onlineshop.goods.entity.Goods;
 import my.group.onlineshop.goods.service.GoodsService;
-import my.group.onlineshop.user.service.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +15,6 @@ public class GoodsController {
 
     @Autowired
     GoodsService gs;
-
-    @Autowired
-    BankService bs;
 
     @RequestMapping("/goods")
     public String viewAllGoods(Model model){
@@ -46,7 +42,7 @@ public class GoodsController {
     public String buyGoods(@PathVariable("id") String id, Model model){
         int iid = Integer.parseInt(id);
         Goods good = gs.getGoodById(iid);
-        Boolean isSuccess = bs.buy(good);
+        Boolean isSuccess = gs.buy(good);
         if(isSuccess) System.out.println("Purchase was successful");
         else System.out.println("Purchase wasn't successful.");
         return "buy";

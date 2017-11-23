@@ -1,7 +1,6 @@
-package my.group.onlineshop.goods;
+package my.group.onlineshop.goods.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class DiscountGoods extends Goods {
     private double discountInPercents;

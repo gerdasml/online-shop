@@ -1,6 +1,6 @@
 package my.group.onlineshop.user.database;
 
-import my.group.onlineshop.user.User;
+import my.group.onlineshop.user.entity.User;
 import my.group.onlineshop.user.factory.UserFactory;
 import my.group.onlineshop.user.factory.UserFactoryCreator;
 

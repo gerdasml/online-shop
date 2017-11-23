@@ -1,4 +1,4 @@
-package my.group.onlineshop.user;
+package my.group.onlineshop.user.entity;
 
 public class PremiumFacebookUser extends FacebookUser{
 

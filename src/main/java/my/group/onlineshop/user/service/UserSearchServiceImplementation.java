@@ -1,6 +1,6 @@
 package my.group.onlineshop.user.service;
 
-import my.group.onlineshop.user.User;
+import my.group.onlineshop.user.entity.User;
 import my.group.onlineshop.user.database.UserRepository;
 
 import java.util.List;

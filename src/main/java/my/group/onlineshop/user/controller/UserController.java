@@ -1,8 +1,6 @@
 package my.group.onlineshop.user.controller;
 
-import my.group.onlineshop.user.service.DeliveryService;
-import my.group.onlineshop.user.User;
-import my.group.onlineshop.user.service.UserSearchService;
+import my.group.onlineshop.user.entity.User;
 import my.group.onlineshop.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,6 +43,7 @@ public class UserController {
         int userIdy = Integer.parseInt(userId);
         int goodsIdy = Integer.parseInt(goodsId);
         String message = us.deliver(userIdy, goodsIdy);
+        us.pay(goodsIdy);
         Double purchaseCost = us.getPurchaseCost(goodsIdy);
         model.addAttribute("message", message);
         model.addAttribute("purchaseCost", purchaseCost);

@@ -1,4 +1,4 @@
-package my.group.onlineshop.user;
+package my.group.onlineshop.user.entity;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
