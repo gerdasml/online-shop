@@ -1,4 +1,4 @@
-package my.group.onlineshop.goods.service;
+package my.group.onlineshop.facadeservice;
 
 import my.group.onlineshop.goods.entity.Goods;
 

@@ -1,4 +1,4 @@
-package my.group.onlineshop.goods.database;
+package my.group.onlineshop.repository;
 
 import my.group.onlineshop.goods.factory.GoodsFactory;
 import my.group.onlineshop.goods.entity.Goods;
