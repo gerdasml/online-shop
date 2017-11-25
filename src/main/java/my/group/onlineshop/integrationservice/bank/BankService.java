@@ -1,4 +1,4 @@
-package my.group.onlineshop.integrationservice;
+package my.group.onlineshop.integrationservice.bank;
 
 public interface BankService {
 

@@ -1,4 +1,4 @@
-package my.group.onlineshop.integrationservice;
+package my.group.onlineshop.integrationservice.dispatch;
 
 import my.group.onlineshop.domain.goods.Goods;
 import my.group.onlineshop.domainservice.delivery.DispatchService;

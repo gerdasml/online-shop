@@ -1,10 +1,8 @@
 package my.group.onlineshop.facadeservice.delivery;
 
 import my.group.onlineshop.domainservice.delivery.DeliveryDomainService;
-import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
-import my.group.onlineshop.integrationservice.BankService;
-import my.group.onlineshop.repository.goodsrepository.GoodsRepository;
+import my.group.onlineshop.integrationservice.bank.BankService;
 import my.group.onlineshop.repository.userrepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -2,7 +2,7 @@ package my.group.onlineshop.facadeservice.goods;
 
 import my.group.onlineshop.domain.goods.Goods;
 import my.group.onlineshop.repository.goodsrepository.GoodsRepository;
-import my.group.onlineshop.integrationservice.BankService;
+import my.group.onlineshop.integrationservice.bank.BankService;
 
 import java.util.List;
 import java.util.stream.Collectors;
