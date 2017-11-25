@@ -1,6 +1,7 @@
 package my.group.onlineshop;
 
 import my.group.onlineshop.domainservice.delivery.DeliveryDomainService;
+import my.group.onlineshop.domainservice.delivery.DispatchService;
 import my.group.onlineshop.domainservice.delivery.HomeDeliveryDomainServiceImplementation;
 import my.group.onlineshop.domainservice.purchase.PurchaseDomainService;
 import my.group.onlineshop.domainservice.purchase.PurchaseDomainServiceImplementation;
@@ -17,6 +18,7 @@ import my.group.onlineshop.facadeservice.user.UserServiceImplementation;
 import my.group.onlineshop.integrationservice.BankService;
 import my.group.onlineshop.integrationservice.DanskeBankService;
 import my.group.onlineshop.integrationservice.SwedbankService;
+import my.group.onlineshop.integrationservice.TruckDispatchService;
 import my.group.onlineshop.repository.goodsrepository.GoodsRepository;
 import my.group.onlineshop.repository.goodsrepository.GoodsRepositoryImplementation;
 import my.group.onlineshop.repository.goodsrepository.GoodsFactory;
@@ -73,8 +75,13 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public  DeliveryDomainService deliveryDomainService(){
-        return new HomeDeliveryDomainServiceImplementation();
+    public  DeliveryDomainService deliveryDomainService(DispatchService ds){
+        return new HomeDeliveryDomainServiceImplementation(ds);
+    }
+
+    @Bean
+    public DispatchService dispatchService(){
+        return new TruckDispatchService();
     }
 
     @Bean

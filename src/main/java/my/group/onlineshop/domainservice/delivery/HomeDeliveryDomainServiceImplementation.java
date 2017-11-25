@@ -10,8 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class HomeDeliveryDomainServiceImplementation implements DeliveryDomainService {
 
+    @Autowired
+    private DispatchService ds;
+
+    public HomeDeliveryDomainServiceImplementation(DispatchService ds){
+        this.ds = ds;
+    }
+
     @Override
     public String deliver(User user, Goods goods){
+        ds.dispatch(goods, user.getAddress());
         return "Vartotojo: " + user.getName() + " uzsakyta preke: " + goods.getGoodsName() + " yra ruosiama pritatymui adresu: " + user.getAddress() + ".";
     }
 
