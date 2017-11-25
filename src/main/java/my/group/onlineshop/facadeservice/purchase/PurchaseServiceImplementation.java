@@ -24,7 +24,7 @@ public class PurchaseServiceImplementation implements PurchaseService {
 
     @Override
     public Double getSpecificGoodsCost(int userId, int goodsId) {
-        Purchase p = pr.getAllPurchases(userId).stream().filter(x -> x.getGoodsId() == goodsId).findFirst().orElse(null);
+        Purchase p = pr.getPurchase(userId, goodsId);
         List<Goods> g = gr.getAllGoods();
         return pds.getPurchaseCost(g, p);
     }

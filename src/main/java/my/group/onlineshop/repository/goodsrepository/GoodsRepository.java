@@ -8,4 +8,5 @@ public interface GoodsRepository {
 
     List<Goods> getAllGoods();
     void addGood(Goods good);
+    Goods getGoodsById(int id);
 }

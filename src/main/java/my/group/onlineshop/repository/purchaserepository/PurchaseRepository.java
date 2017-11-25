@@ -8,4 +8,5 @@ public interface PurchaseRepository {
 
     List<Purchase> getAllPurchases(int userId);
     void addPurchase(Purchase purchase);
+    Purchase getPurchase(int userId, int goodsId);
 }

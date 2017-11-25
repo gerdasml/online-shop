@@ -32,6 +32,10 @@ public class GoodsRepositoryImplementation implements GoodsRepository {
         db.add(new ArrayList<>(Arrays.asList(good.getGoodsName(), good.getPrice(), good.getQuantity(), good.getRating(), good.getDiscountInPercents(), good.getDateUntilDiscountEnds(), good.getId())));
     }
 
+    @Override
+    public Goods getGoodsById(int id){
+        return getAllGoods().stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+    }
     private Goods createGoods(List<Object> list){
         String name = list.get(0).toString();
         double price = (double)list.get(1);

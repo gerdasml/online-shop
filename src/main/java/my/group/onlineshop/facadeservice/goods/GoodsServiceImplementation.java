@@ -29,7 +29,7 @@ public class GoodsServiceImplementation implements GoodsService {
 
     @Override
     public Goods getGoodById(int id) {
-        return repo.getAllGoods().stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+        return repo.getGoodsById(id);
     }
 
     @Override

@@ -41,4 +41,9 @@ public class PurchaseRepositoryImplementation implements PurchaseRepository {
         return purchase;
     }
 
+    @Override
+    public Purchase getPurchase(int userId, int goodsId){
+        return getAllPurchases(userId).stream().filter(x -> x.getGoodsId() == goodsId).findFirst().orElse(null);
+    }
+
 }
