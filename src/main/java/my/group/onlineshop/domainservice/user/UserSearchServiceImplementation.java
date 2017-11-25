@@ -1,7 +1,6 @@
-package my.group.onlineshop.domainservice;
+package my.group.onlineshop.domainservice.user;
 
 import my.group.onlineshop.domain.user.User;
-import my.group.onlineshop.repository.userrepository.UserRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;

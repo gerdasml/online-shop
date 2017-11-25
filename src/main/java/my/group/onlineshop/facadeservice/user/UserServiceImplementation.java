@@ -1,7 +1,7 @@
 package my.group.onlineshop.facadeservice.user;
 
 import my.group.onlineshop.domain.user.User;
-import my.group.onlineshop.domainservice.UserSearchService;
+import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.facadeservice.delivery.DeliveryService;
 import my.group.onlineshop.repository.userrepository.UserRepository;
 

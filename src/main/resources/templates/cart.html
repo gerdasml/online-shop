@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Online shoping</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h2>Jusu pirkiniu krepselis:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Preke</th>
+                    <th>Kiekis</th>
+                    <th>Kaina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row:${rows}">
+                    <td th:text="${row.getKey().getKey()}"></td>
+                    <td th:text="${row.getKey().getValue()}"></td>
+                    <td th:text="${row.getValue()}"></td>
+                </tr>
+                <tr>
+                    <td th:colspan="2">Suma:</td>
+                    <td th:text="${totalCost}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,10 +1,15 @@
 package my.group.onlineshop;
 
-import my.group.onlineshop.domainservice.*;
+import my.group.onlineshop.domainservice.purchase.PurchaseDomainService;
+import my.group.onlineshop.domainservice.purchase.PurchaseDomainServiceImplementation;
+import my.group.onlineshop.domainservice.user.UserSearchService;
+import my.group.onlineshop.domainservice.user.UserSearchServiceImplementation;
 import my.group.onlineshop.facadeservice.delivery.DeliveryService;
 import my.group.onlineshop.facadeservice.delivery.HomeDeliveryServiceImplementation;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
 import my.group.onlineshop.facadeservice.goods.GoodsServiceImplementation;
+import my.group.onlineshop.facadeservice.purchase.PurchaseService;
+import my.group.onlineshop.facadeservice.purchase.PurchaseServiceImplementation;
 import my.group.onlineshop.facadeservice.user.UserService;
 import my.group.onlineshop.facadeservice.user.UserServiceImplementation;
 import my.group.onlineshop.integrationservice.BankService;
@@ -14,6 +19,8 @@ import my.group.onlineshop.repository.goodsrepository.GoodsRepository;
 import my.group.onlineshop.repository.goodsrepository.GoodsRepositoryImplementation;
 import my.group.onlineshop.repository.goodsrepository.GoodsFactory;
 import my.group.onlineshop.repository.goodsrepository.GoodsFactoryImplementation;
+import my.group.onlineshop.repository.purchaserepository.PurchaseRepository;
+import my.group.onlineshop.repository.purchaserepository.PurchaseRepositoryImplementation;
 import my.group.onlineshop.repository.userrepository.UserRepository;
 import my.group.onlineshop.repository.userrepository.UserRepositoryImplementation;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -66,5 +73,20 @@ public class OnlineShopConfiguration {
     @Bean
     public UserService userService(UserSearchService uss, DeliveryService ds, UserRepository ur){
         return new UserServiceImplementation(ds, uss, ur);
+    }
+
+    @Bean
+    public PurchaseService purchaseService(GoodsRepository gr, PurchaseRepository pr, PurchaseDomainService pds){
+        return new PurchaseServiceImplementation(gr, pr, pds);
+    }
+
+    @Bean
+    public PurchaseRepository purchaseRepository(){
+        return new PurchaseRepositoryImplementation();
+    }
+
+    @Bean
+    public  PurchaseDomainService purchaseDomainService(){
+        return new PurchaseDomainServiceImplementation();
     }
 }

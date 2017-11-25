@@ -1,6 +1,6 @@
 package my.group.onlineshop.facadeservice.delivery;
 
-import my.group.onlineshop.domainservice.UserSearchService;
+import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
 import my.group.onlineshop.integrationservice.BankService;
 import my.group.onlineshop.repository.userrepository.UserRepository;
