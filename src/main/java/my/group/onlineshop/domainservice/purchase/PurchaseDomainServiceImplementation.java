@@ -16,7 +16,7 @@ public class PurchaseDomainServiceImplementation implements PurchaseDomainServic
     @Override
     public Double getAllPurchasesCost(List<Goods> goods, List<Purchase> purchase) {
         return goods.stream().filter(x -> purchase.stream().anyMatch(y -> y.getGoodsId() == x.getId()))
-                    .map(x -> x.getPrice() * purchase.stream().filter(y -> y.getGoodsId() == x.getId())
-                    .map(y -> y.getPurchaseQuantity()).findFirst().orElse(0)).mapToDouble(x -> x).sum();
+                .map(x -> x.getPrice() * purchase.stream().filter(y -> y.getGoodsId() == x.getId())
+                        .map(y -> y.getPurchaseQuantity()).findFirst().orElse(0)).mapToDouble(x -> x).sum();
     }
 }

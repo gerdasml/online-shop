@@ -1,11 +1,13 @@
 package my.group.onlineshop;
 
+import my.group.onlineshop.domainservice.delivery.DeliveryDomainService;
+import my.group.onlineshop.domainservice.delivery.HomeDeliveryDomainServiceImplementation;
 import my.group.onlineshop.domainservice.purchase.PurchaseDomainService;
 import my.group.onlineshop.domainservice.purchase.PurchaseDomainServiceImplementation;
 import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.domainservice.user.UserSearchServiceImplementation;
 import my.group.onlineshop.facadeservice.delivery.DeliveryService;
-import my.group.onlineshop.facadeservice.delivery.HomeDeliveryServiceImplementation;
+import my.group.onlineshop.facadeservice.delivery.DeliveryServiceImplementation;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
 import my.group.onlineshop.facadeservice.goods.GoodsServiceImplementation;
 import my.group.onlineshop.facadeservice.purchase.PurchaseService;
@@ -66,8 +68,13 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bs, UserSearchService us, GoodsService gs, UserRepository ur){
-        return new HomeDeliveryServiceImplementation(us, gs, bs, ur);
+    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bs, DeliveryDomainService dds, GoodsService gs, UserRepository ur){
+        return new DeliveryServiceImplementation(ur, dds, gs, bs);
+    }
+
+    @Bean
+    public  DeliveryDomainService deliveryDomainService(){
+        return new HomeDeliveryDomainServiceImplementation();
     }
 
     @Bean

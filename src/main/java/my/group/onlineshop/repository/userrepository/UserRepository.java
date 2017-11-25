@@ -8,4 +8,5 @@ public interface UserRepository {
 
     List<User> getAllUsers();
     void addUser(User user);
+    User getUserById(int id);
 }

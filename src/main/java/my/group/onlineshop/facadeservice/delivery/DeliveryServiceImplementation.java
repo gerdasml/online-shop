@@ -1,39 +1,39 @@
 package my.group.onlineshop.facadeservice.delivery;
 
+import my.group.onlineshop.domainservice.delivery.DeliveryDomainService;
 import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
 import my.group.onlineshop.integrationservice.BankService;
+import my.group.onlineshop.repository.goodsrepository.GoodsRepository;
 import my.group.onlineshop.repository.userrepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class PostOfficeServiceImplementation implements DeliveryService {
-
-
-    private UserSearchService us;
+public class DeliveryServiceImplementation implements DeliveryService {
+    private UserRepository ur;
+    private DeliveryDomainService dds;
     private GoodsService gs;
     private BankService bs;
-    private UserRepository ur;
 
     @Autowired
-    public PostOfficeServiceImplementation(UserSearchService us, GoodsService gs, BankService bs, UserRepository ur){
-        this.us = us;
+    public DeliveryServiceImplementation(UserRepository ur, DeliveryDomainService dds, GoodsService gs, BankService bs){
+        this.ur = ur;
+        this.dds = dds;
         this.gs = gs;
         this.bs = bs;
-        this.ur = ur;
     }
 
     @Override
     public String deliver(int userId, int goodsId) {
-        return "Vartotojo: " + us.getUserById(userId, ur.getAllUsers()).getName() + " uzsakyta preke: " + gs.getGoodById(goodsId).getGoodsName() + " bus issiusta i artimiausia pasto punkta.";
+        return dds.deliver(ur.getUserById(userId), gs.getGoodById(goodsId));
     }
 
     @Override
     public Double getPurchaseCost(int goodsId) {
-        return gs.getGoodById(goodsId).getPrice();
+        return dds.getPurchaseCost(gs.getGoodById(goodsId));
     }
 
     @Override
     public Boolean pay(int goodsId) {
-        return bs.buy(gs.getGoodById(goodsId).getPrice());
+        return bs.buy(getPurchaseCost(goodsId));
     }
 }

@@ -36,7 +36,6 @@ public class PurchaseRepositoryImplementation implements PurchaseRepository {
     }
 
     private Purchase createPurchase(List<Object> list){
-
         Purchase purchase;
         purchase = new PurchaseImplementation((int)list.get(0), (int)list.get(1), (int)list.get(2));
         return purchase;

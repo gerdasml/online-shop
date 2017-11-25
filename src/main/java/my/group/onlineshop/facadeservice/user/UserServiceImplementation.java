@@ -41,7 +41,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public User getUserById(int id) {
-        return usseas.getUserById(id, usrep.getAllUsers());
+        return usrep.getUserById(id);
     }
 
     @Override

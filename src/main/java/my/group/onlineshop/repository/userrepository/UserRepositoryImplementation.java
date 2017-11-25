@@ -25,6 +25,10 @@ public class UserRepositoryImplementation implements UserRepository {
     public void addUser(User user) {
         db.add(new ArrayList<>(Arrays.asList(user.getEmail(), user.getName(), user.getAddress(), user.getId(), user.getUserType(), user.isPremium())));
     }
+    @Override
+    public User getUserById(int id){
+        return getAllUsers().stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+    }
 
     private User createUser(List<Object> list){
         UserFactory faq;
