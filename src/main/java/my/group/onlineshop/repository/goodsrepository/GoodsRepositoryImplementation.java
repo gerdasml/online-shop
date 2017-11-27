@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 public class GoodsRepositoryImplementation implements GoodsRepository {
 
     private List<List<Object>> db = new ArrayList<>();
-    private GoodsFactory faq;
+    private GoodsFactory goodsFactory;
 
     @Autowired
     public GoodsRepositoryImplementation(GoodsFactory faq){
         db.add(new ArrayList<>(Arrays.asList("Batai", 69.99, 43, null, 33.33, "2017-12-31", 0)));
         db.add(new ArrayList<>(Arrays.asList("Suknele", 14.99, 3, 4.6, null, null, 1)));
         db.add(new ArrayList<>(Arrays.asList("Striuke", 154.5, 8, 2.8, null, null, 2)));
-        this.faq = faq;
+        this.goodsFactory = faq;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class GoodsRepositoryImplementation implements GoodsRepository {
         Double discount = list.get(4) == null ? null : (Double)list.get(4);
         LocalDate discountDate = list.get(5) == null ? null : LocalDate.parse(list.get(5).toString());
         int id = (int)list.get(6);
-        if(list.get(3) == null) return faq.makeDiscountGoods(id, name, discount, discountDate, price, quantity);
-        else return faq.makeRegularGoods(id, name, rating, price, quantity);
+        if(list.get(3) == null) return goodsFactory.makeDiscountGoods(id, name, discount, discountDate, price, quantity);
+        else return goodsFactory.makeRegularGoods(id, name, rating, price, quantity);
     }
 }

@@ -35,13 +35,13 @@ import org.springframework.context.annotation.Configuration;
 public class OnlineShopConfiguration {
 
     @Bean
-    public GoodsService goodsService(GoodsRepository gr, @Qualifier("swedbankService") BankService bs){
-        return new GoodsServiceImplementation(gr, bs);
+    public GoodsService goodsService(GoodsRepository goodsRepository, @Qualifier("swedbankService") BankService bankService){
+        return new GoodsServiceImplementation(goodsRepository, bankService);
     }
 
     @Bean
-    public GoodsRepository goodsRepository(GoodsFactory gf){
-        return new GoodsRepositoryImplementation(gf);
+    public GoodsRepository goodsRepository(GoodsFactory goodsFactory){
+        return new GoodsRepositoryImplementation(goodsFactory);
     }
 
     @Bean
@@ -70,13 +70,13 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bs, DeliveryDomainService dds, GoodsService gs, UserRepository ur){
-        return new DeliveryServiceImplementation(ur, dds, gs, bs);
+    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bankService, DeliveryDomainService deliveryDomainService, GoodsService goodsService, UserRepository userRepository){
+        return new DeliveryServiceImplementation(userRepository, deliveryDomainService, goodsService, bankService);
     }
 
     @Bean
-    public  DeliveryDomainService deliveryDomainService(DispatchService ds){
-        return new HomeDeliveryDomainServiceImplementation(ds);
+    public  DeliveryDomainService deliveryDomainService(DispatchService dispatchService){
+        return new HomeDeliveryDomainServiceImplementation(dispatchService);
     }
 
     @Bean
@@ -85,13 +85,13 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public UserService userService(UserSearchService uss, DeliveryService ds, UserRepository ur){
-        return new UserServiceImplementation(ds, uss, ur);
+    public UserService userService(UserSearchService userSearchService, DeliveryService deliveryService, UserRepository userRepository){
+        return new UserServiceImplementation(deliveryService, userSearchService, userRepository);
     }
 
     @Bean
-    public PurchaseService purchaseService(GoodsRepository gr, PurchaseRepository pr, PurchaseDomainService pds){
-        return new PurchaseServiceImplementation(gr, pr, pds);
+    public PurchaseService purchaseService(GoodsRepository goodsRepository, PurchaseRepository purchaseRepository, PurchaseDomainService purchaseDomainService){
+        return new PurchaseServiceImplementation(goodsRepository, purchaseRepository, purchaseDomainService);
     }
 
     @Bean

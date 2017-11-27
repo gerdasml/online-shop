@@ -9,31 +9,31 @@ import java.util.stream.Collectors;
 
 public class GoodsServiceImplementation implements GoodsService {
 
-    private GoodsRepository repo;
-    private BankService bs;
+    private GoodsRepository goodsRepository;
+    private BankService bankService;
 
     public GoodsServiceImplementation(GoodsRepository repo, BankService bs) {
-        this.repo = repo;
-        this.bs = bs;
+        this.goodsRepository = repo;
+        this.bankService = bs;
     }
 
     @Override
     public List<Goods> getAllGoods() {
-        return repo.getAllGoods();
+        return goodsRepository.getAllGoods();
     }
 
     @Override
     public List<Goods> getDiscountGoods() {
-        return repo.getAllGoods().stream().filter(x -> x.getDiscountInPercents() != null).collect(Collectors.toList());
+        return goodsRepository.getAllGoods().stream().filter(x -> x.getDiscountInPercents() != null).collect(Collectors.toList());
     }
 
     @Override
     public Goods getGoodById(int id) {
-        return repo.getGoodsById(id);
+        return goodsRepository.getGoodsById(id);
     }
 
     @Override
     public Boolean buy(Goods goods) {
-        return bs.buy(goods.getPrice());
+        return bankService.buy(goods.getPrice());
     }
 }

@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class PostOfficeDomainServiceImplementation implements DeliveryDomainService {
 
     @Autowired
-    private DispatchService ds;
+    private DispatchService dispatchService;
 
     public PostOfficeDomainServiceImplementation(DispatchService ds){
-        this.ds = ds;
+        this.dispatchService = ds;
     }
 
     @Override
     public String deliver(User user, Goods goods){
-        ds.dispatch(goods, "pastas");
+        dispatchService.dispatch(goods, "pastas");
         return "Vartotojo: " + user.getName() + " uzsakyta preke: " + goods.getGoodsName() + " bus issiusta i artimiausia pasto punkta.";
     }
 

@@ -9,43 +9,43 @@ import java.util.List;
 
 public class UserServiceImplementation implements UserService {
 
-    private DeliveryService delser;
-    private UserSearchService usseas;
-    private UserRepository usrep;
+    private DeliveryService deliveryService;
+    private UserSearchService userSearchService;
+    private UserRepository userRepository;
 
     public UserServiceImplementation(DeliveryService delser, UserSearchService usseas, UserRepository usrep){
-        this.delser = delser;
-        this.usseas = usseas;
-        this.usrep = usrep;
+        this.deliveryService = delser;
+        this.userSearchService = usseas;
+        this.userRepository = usrep;
     }
 
     @Override
     public String deliver(int userId, int goodsId) {
-        return delser.deliver(userId, goodsId);
+        return deliveryService.deliver(userId, goodsId);
     }
 
     @Override
     public Double getPurchaseCost(int goodsId) {
-        return delser.getPurchaseCost(goodsId);
+        return deliveryService.getPurchaseCost(goodsId);
     }
 
     @Override
     public Boolean pay(int goodsId) {
-        return delser.pay(goodsId);
+        return deliveryService.pay(goodsId);
     }
 
     @Override
     public List<User> getAllUsers() {
-        return usrep.getAllUsers();
+        return userRepository.getAllUsers();
     }
 
     @Override
     public User getUserById(int id) {
-        return usrep.getUserById(id);
+        return userRepository.getUserById(id);
     }
 
     @Override
     public List<User> getPremiumUser() {
-        return usseas.getPremiumUsers(usrep.getAllUsers());
+        return userSearchService.getPremiumUsers(userRepository.getAllUsers());
     }
 }

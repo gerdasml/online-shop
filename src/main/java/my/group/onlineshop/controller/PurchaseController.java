@@ -17,19 +17,19 @@ import java.util.stream.Collectors;
 public class PurchaseController {
 
     @Autowired
-    PurchaseService ps;
+    PurchaseService purchaseService;
 
     @Autowired
-    GoodsService gs;
+    GoodsService goodsService;
 
     @RequestMapping("/cart/{id}")
     public String viewCart(@PathVariable("id") String id, Model model){
         int iid = Integer.parseInt(id);
-        List<Purchase> purchase = ps.getAllPurchases(iid);
+        List<Purchase> purchase = purchaseService.getAllPurchases(iid);
         List<Pair<Pair<String, Integer>, Double>> list = purchase.stream()
-                .map(x -> new Pair<>(new Pair<> (gs.getGoodById(x.getGoodsId()).getGoodsName(), x.getPurchaseQuantity()), ps.getSpecificGoodsCost(iid, x.getGoodsId()))).collect(Collectors.toList());
+                .map(x -> new Pair<>(new Pair<> (goodsService.getGoodById(x.getGoodsId()).getGoodsName(), x.getPurchaseQuantity()), purchaseService.getSpecificGoodsCost(iid, x.getGoodsId()))).collect(Collectors.toList());
         model.addAttribute("rows", list);
-        model.addAttribute("totalCost", (double)Math.round(ps.getPurchaseCost(iid) * 100) / 100);
+        model.addAttribute("totalCost", (double)Math.round(purchaseService.getPurchaseCost(iid) * 100) / 100);
         return "cart";
     }
 }

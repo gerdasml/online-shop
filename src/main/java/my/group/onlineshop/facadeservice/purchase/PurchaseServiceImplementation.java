@@ -11,33 +11,33 @@ import java.util.List;
 
 public class PurchaseServiceImplementation implements PurchaseService {
 
-    private GoodsRepository gr;
-    private PurchaseRepository pr;
-    private PurchaseDomainService pds;
+    private GoodsRepository goodsRepository;
+    private PurchaseRepository purchaseRepository;
+    private PurchaseDomainService purchaseDomainService;
 
     @Autowired
     public PurchaseServiceImplementation(GoodsRepository gr, PurchaseRepository pr, PurchaseDomainService pds){
-        this.gr = gr;
-        this.pr = pr;
-        this.pds = pds;
+        this.goodsRepository = gr;
+        this.purchaseRepository = pr;
+        this.purchaseDomainService = pds;
     }
 
     @Override
     public Double getSpecificGoodsCost(int userId, int goodsId) {
-        Purchase p = pr.getPurchase(userId, goodsId);
-        List<Goods> g = gr.getAllGoods();
-        return pds.getPurchaseCost(g, p);
+        Purchase p = purchaseRepository.getPurchase(userId, goodsId);
+        List<Goods> g = goodsRepository.getAllGoods();
+        return purchaseDomainService.getPurchaseCost(g, p);
     }
 
     @Override
     public Double getPurchaseCost(int userId) {
-        List<Purchase> p = pr.getAllPurchases(userId);
-        List<Goods> g = gr.getAllGoods();
-        return pds.getAllPurchasesCost(g, p);
+        List<Purchase> p = purchaseRepository.getAllPurchases(userId);
+        List<Goods> g = goodsRepository.getAllGoods();
+        return purchaseDomainService.getAllPurchasesCost(g, p);
     }
 
     @Override
     public List<Purchase> getAllPurchases(int userId){
-        return pr.getAllPurchases(userId);
+        return purchaseRepository.getAllPurchases(userId);
     }
 }

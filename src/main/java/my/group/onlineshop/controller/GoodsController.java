@@ -14,11 +14,11 @@ import java.util.List;
 public class GoodsController {
 
     @Autowired
-    GoodsService gs;
+    GoodsService goodsService;
 
     @RequestMapping("/goods")
     public String viewAllGoods(Model model){
-        List<Goods> allGoods = gs.getAllGoods();
+        List<Goods> allGoods = goodsService.getAllGoods();
         model.addAttribute("goods", allGoods);
         return "goods";
     }
@@ -26,14 +26,14 @@ public class GoodsController {
     @RequestMapping("/goods/{id}")
     public String viewSingleGood(@PathVariable("id") String id, Model model){
         int iid = Integer.parseInt(id);
-        Goods good = gs.getGoodById(iid);
+        Goods good = goodsService.getGoodById(iid);
         model.addAttribute("good", good);
         return "good";
     }
 
     @RequestMapping("/goods/discounted")
     public String viewDiscountedGoods(Model model){
-        List<Goods> discountedGoods = gs.getDiscountGoods();
+        List<Goods> discountedGoods = goodsService.getDiscountGoods();
         model.addAttribute("discounted", discountedGoods);
         return "discount";
     }
@@ -41,8 +41,8 @@ public class GoodsController {
     @RequestMapping("/goods/{id}/buy")
     public String buyGoods(@PathVariable("id") String id, Model model){
         int iid = Integer.parseInt(id);
-        Goods good = gs.getGoodById(iid);
-        Boolean isSuccess = gs.buy(good);
+        Goods good = goodsService.getGoodById(iid);
+        Boolean isSuccess = goodsService.buy(good);
         if(isSuccess) System.out.println("Purchase was successful");
         else System.out.println("Purchase wasn't successful.");
         return "buy";

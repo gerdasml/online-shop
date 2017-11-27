@@ -14,18 +14,18 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserService us;
+    UserService userService;
 
     @RequestMapping("/users")
     public String viewAllUsers(Model model){
-        List<User> allUsers = us.getAllUsers();
+        List<User> allUsers = userService.getAllUsers();
         model.addAttribute("users", allUsers);
         return "users";
     }
 
     @RequestMapping("/users/premium")
     public String viewPremiumUsers(Model model){
-        List<User> premiumUsers = us.getPremiumUser();
+        List<User> premiumUsers = userService.getPremiumUser();
         model.addAttribute("premiumUsers", premiumUsers);
         return "premium";
     }
@@ -33,7 +33,7 @@ public class UserController {
     @RequestMapping("/users/{id}")
     public String viewSingleUser(@PathVariable("id") String id, Model model){
         int iid = Integer.parseInt(id);
-        User user = us.getUserById(iid);
+        User user = userService.getUserById(iid);
         model.addAttribute("user", user);
         return "user";
     }
@@ -42,9 +42,9 @@ public class UserController {
     public String viewDeliveryInformation(@PathVariable("userId") String userId, @PathVariable("goodsId") String goodsId, Model model){
         int userIdy = Integer.parseInt(userId);
         int goodsIdy = Integer.parseInt(goodsId);
-        String message = us.deliver(userIdy, goodsIdy);
-        us.pay(goodsIdy);
-        Double purchaseCost = us.getPurchaseCost(goodsIdy);
+        String message = userService.deliver(userIdy, goodsIdy);
+        userService.pay(goodsIdy);
+        Double purchaseCost = userService.getPurchaseCost(goodsIdy);
         model.addAttribute("message", message);
         model.addAttribute("purchaseCost", purchaseCost);
         return "delivery";
