@@ -6,14 +6,14 @@ import my.group.onlineshop.integrationservice.bank.BankService;
 import my.group.onlineshop.repository.userrepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class DeliveryServiceImplementation implements DeliveryService {
+public class LocalDeliveryServiceImplementation implements DeliveryService {
     private UserRepository userRepository;
     private DeliveryDomainService deliveryDomainService;
     private GoodsService goodsService;
     private BankService bankService;
 
     @Autowired
-    public DeliveryServiceImplementation(UserRepository ur, DeliveryDomainService dds, GoodsService gs, BankService bs){
+    public LocalDeliveryServiceImplementation(UserRepository ur, DeliveryDomainService dds, GoodsService gs, BankService bs){
         this.userRepository = ur;
         this.deliveryDomainService = dds;
         this.goodsService = gs;
@@ -22,6 +22,7 @@ public class DeliveryServiceImplementation implements DeliveryService {
 
     @Override
     public String deliver(int userId, int goodsId) {
+        System.out.println("Pristatymo tipas: Lietuvoje.");
         return deliveryDomainService.deliver(userRepository.getUserById(userId), goodsService.getGoodById(goodsId));
     }
 

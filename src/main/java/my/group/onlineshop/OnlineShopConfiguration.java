@@ -8,7 +8,7 @@ import my.group.onlineshop.domainservice.purchase.PurchaseDomainServiceImplement
 import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.domainservice.user.UserSearchServiceImplementation;
 import my.group.onlineshop.facadeservice.delivery.DeliveryService;
-import my.group.onlineshop.facadeservice.delivery.DeliveryServiceImplementation;
+import my.group.onlineshop.facadeservice.delivery.LocalDeliveryServiceImplementation;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
 import my.group.onlineshop.facadeservice.goods.GoodsServiceImplementation;
 import my.group.onlineshop.facadeservice.purchase.PurchaseService;
@@ -71,7 +71,7 @@ public class OnlineShopConfiguration {
 
     @Bean
     public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bankService, DeliveryDomainService deliveryDomainService, GoodsService goodsService, UserRepository userRepository){
-        return new DeliveryServiceImplementation(userRepository, deliveryDomainService, goodsService, bankService);
+        return new LocalDeliveryServiceImplementation(userRepository, deliveryDomainService, goodsService, bankService);
     }
 
     @Bean
