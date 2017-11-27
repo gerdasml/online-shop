@@ -8,7 +8,7 @@
         <h2>Premium vartotojai</h2>
         <ul>
             <li th:each="user:${premiumUsers}">
-                <a th:text="${user.getName()}" th:href="'/premium/'+${user.getId()}"></a>
+                <a th:text="${user.getName()}" th:href="'/users/'+${user.getId()}"></a>
             </li>
         </ul>
     </body>
