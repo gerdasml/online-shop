@@ -8,6 +8,7 @@ import my.group.onlineshop.domainservice.purchase.PurchaseDomainServiceImplement
 import my.group.onlineshop.domainservice.user.UserSearchService;
 import my.group.onlineshop.domainservice.user.UserSearchServiceImplementation;
 import my.group.onlineshop.facadeservice.delivery.DeliveryService;
+import my.group.onlineshop.facadeservice.delivery.InternationalDeliveryServiceImplementation;
 import my.group.onlineshop.facadeservice.delivery.LocalDeliveryServiceImplementation;
 import my.group.onlineshop.facadeservice.goods.GoodsService;
 import my.group.onlineshop.facadeservice.goods.GoodsServiceImplementation;
@@ -69,9 +70,13 @@ public class OnlineShopConfiguration {
         return new DanskeBankService();
     }
 
-    @Bean
-    public DeliveryService deliveryService(@Qualifier ("danskeService") BankService bankService, DeliveryDomainService deliveryDomainService, GoodsService goodsService, UserRepository userRepository){
+    @Bean(name="delivery1")
+    public DeliveryService deliveryService1(@Qualifier ("danskeService") BankService bankService, DeliveryDomainService deliveryDomainService, GoodsService goodsService, UserRepository userRepository){
         return new LocalDeliveryServiceImplementation(userRepository, deliveryDomainService, goodsService, bankService);
+    }
+    @Bean(name="delivery2")
+    public DeliveryService deliveryService2(@Qualifier ("swedbankService") BankService bankService, DeliveryDomainService deliveryDomainService, GoodsService goodsService, UserRepository userRepository){
+        return new InternationalDeliveryServiceImplementation(userRepository, deliveryDomainService, goodsService, bankService);
     }
 
     @Bean
@@ -85,7 +90,7 @@ public class OnlineShopConfiguration {
     }
 
     @Bean
-    public UserService userService(UserSearchService userSearchService, DeliveryService deliveryService, UserRepository userRepository){
+    public UserService userService(UserSearchService userSearchService, @Qualifier("delivery1") DeliveryService deliveryService, UserRepository userRepository){
         return new UserServiceImplementation(deliveryService, userSearchService, userRepository);
     }
 
